@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>WineApp</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>WineApp Landing Page</title>
   </head>
-  <body></body>
+
+  <body>
+    <h1>Hello World</h1>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      const wineApp = {};
+
+      wineApp.url = "https://api.spoonacular.com/food/wine/pairing?";
+      wineApp.getWineCat = $.ajax({
+        url: wineApp.url,
+        dataType: 'json',
+        method: 'GET',
+        data: {
+          food: 'steak',
+          maxPrice: '40',
+          apiKey: '98162948a5504d3181cf99fb1f42ea76',
+        }
+      }).then(function (result) {
+        console.log(result)
+      }).fail(function (result) {
+        console.log('fail')
+      })
+      
+    </script>
+  </body>
+
 </html>
