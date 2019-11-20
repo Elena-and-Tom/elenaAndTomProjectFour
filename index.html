@@ -13,14 +13,15 @@
     <script>
       const wineApp = {};
 
-      wineApp.url = "https://api.spoonacular.com/food/wine/pairing?";
+      wineApp.url = "https://api.spoonacular.com/food/wine/dishes";
       wineApp.getWineCat = $.ajax({
         url: wineApp.url,
         dataType: 'json',
         method: 'GET',
         data: {
-          food: 'steak',
-          maxPrice: '40',
+          // food: 'steak',
+          // maxPrice: '40',
+          wine: 'pinot noir',
           apiKey: '98162948a5504d3181cf99fb1f42ea76',
         }
       }).then(function (result) {
