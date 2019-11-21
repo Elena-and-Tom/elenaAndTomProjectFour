@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>WineApp Landing Page</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>WineApp Landing Page</title>
   </head>
 
   <body>
     <h1>Hello World</h1>
+    <section class='mainContainer'>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet ipsam, id
+        repudiandae facere ut magni! Facere, expedita? Totam, fuga iure. Minus
+        officiis deleniti earum rerum quo dicta unde sit sapiente.
+      </p>
+      <form class="userSelection" id="userSelection">
+        <label for="foodChoice">Please select the food</label>
+        <select name="foodChoice">
+          <option selected="selected">Select the food</option>
+          <option value="red meat">Red meat</option>
+          <option value="chicken">White meat </option>
+          <option value="pizza">Pizza</option>
+          <option value="risotto">Risotto(V)</option>
+          <option value="fish">Fish</option>
+        </select>
+      </form>
+      <button type="submit" id="getResults">Explore suggestions</button>
+    </section>
+    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-      const wineApp = {};
-
-      wineApp.url = "https://api.spoonacular.com/food/wine/dishes";
-      wineApp.getWineCat = $.ajax({
-        url: wineApp.url,
-        dataType: 'json',
-        method: 'GET',
-        data: {
-          // food: 'steak',
-          // maxPrice: '40',
-          wine: 'pinot noir',
-          apiKey: '98162948a5504d3181cf99fb1f42ea76',
-        }
-      }).then(function (result) {
-        console.log(result)
-      }).fail(function (result) {
-        console.log('fail')
-      })
-      
-    </script>
+    <script src="index.js"></script>
   </body>
-
 </html>
