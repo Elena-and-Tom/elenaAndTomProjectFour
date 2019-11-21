@@ -10,7 +10,7 @@ wineApp.topSection = document.querySelector(".topSection");
 
 // functions for on clicks
 wineApp.events = function() {
-  $("#getResults").on("click", e => {
+  $(".mainContainer").on("click", "#getResults", e => {
     let userChoice = "";
 
     e.preventDefault();
@@ -24,7 +24,41 @@ wineApp.events = function() {
     e.preventDefault();
     wineApp.startOver();
   });
+
+  $(".mainContainer").on("click", "#getResultsTwo", e => {
+    let userChoiceTwo = "";
+    
+    e.preventDefault(); 
+    wineApp.loopThroughRadios();
+    // userChoiceTwo = $("input[name=wineChoice]").val();
+    // wineApp.getData(userChoiceTwo);
+    // wineApp.topSection.className += "topSectionHide";
+    // wineApp.mainContainer.innerHTML = "";
+  });
+
 };
+
+wineApp.loopThroughRadios = function() {
+  const radios = Array.from($('.wineChoice'))
+  let radioValue;
+
+  for (let i = 0; i< radios.length; i++){
+    if (radios[i].checked) {
+      // thats weird - look into this for jquery version
+      console.log(radios[i])
+
+      radioValue = radios[i].value;
+      console.log(radioValue)
+    }
+  }
+
+  if (radioValue == null) {
+    alert('hello pick sometin dude')
+    // maybe add a return here if we need it to stop
+  }
+  wineApp.getData2(radioValue);
+
+}
 
 wineApp.startOver = function() {
   $(".mainContainer").html("").append(`<div class="topSection">
@@ -60,14 +94,36 @@ wineApp.getData = function(foodChoice) {
     data: {
       food: foodChoice,
       maxPrice: "40",
-      apiKey: "98162948a5504d3181cf99fb1f42ea76"
+      apiKey: "b79077231aeb4404ae54b9a405920c64"
     }
   })
     .then(function(result) {
-      console.log(result);
       wineApp.cleanData(result, foodChoice);
     })
     .fail(function() {
+      console.log("fail");
+    });
+};
+
+wineApp.getData2 = function (wineUserChoice) {
+  console.log(wineUserChoice)
+  wineApp.url2 = "https://api.spoonacular.com/food/wine/recommendation?";
+
+  $.ajax({
+    url: wineApp.url2,
+    dataType: "json",
+    method: "GET",
+    data: {
+      wine: wineUserChoice,
+      number: 100,
+      // maxPrice: "40", // STRETCH IT UP
+      apiKey: "b79077231aeb4404ae54b9a405920c64",
+    }
+  })
+    .then(function (result) {
+      wineApp.cleanData2(result, wineUserChoice);
+    })
+    .fail(function () {
       console.log("fail");
     });
 };
@@ -83,31 +139,65 @@ wineApp.cleanData = function(apiData, userChoice) {
   wineApp.displayTypes(totalData, userChoice);
 };
 
+wineApp.cleanData2 = function (apiData, wineUserChoice) {
+  let totalData = [];
+  totalData.push(apiData.recommendedWines);
+  wineApp.categorizeWine(totalData, wineUserChoice)
+  // wineApp.displayWines(totalData, wineUserChoice);
+};
+
+
+
+wineApp.categorizeWine = function (apiData, userWineInput) {
+  let cheapWine = [];
+  let midWine = [];
+  let highWine = [];
+
+  apiData[0].forEach(function(option) {
+    let cleanOption = option.price.substr(1)
+    if (parseInt(cleanOption) >= 40) {
+        highWine.push(option)
+    } else if (parseInt(cleanOption) >= 15) {
+        midWine.push(option)
+    } else {
+        cheapWine.push(option)
+    }
+  })
+  
+
+  wineApp.randomize(cheapWine, midWine, highWine, userWineInput)
+}
+
+wineApp.randomize = function (cheapWine, midWine, highWine, userWineInput) {
+  console.log(cheapWine)
+  console.log(midWine)
+  console.log(highWine) 
+  console.log(userWineInput) 
+  // displayTypes(cheapWine, midWine, highWine, userWineInput)
+}
+
+
 // functions for activity
 wineApp.displayTypes = function(apiData, userInput) {
   // grab the data from the API
 
-  console.log(apiData[0]);
-  console.log(apiData[1]);
-
   // const wines = apiData[0][0];
-  // console.log(wines);
   let pairedWines;
   pairedWines = apiData[0].join(", ");
-  console.log(pairedWines);
 
   $(".mainContainer").append(
     `<div class="pageTwoTop"><p>You chose ${userInput}. Good choice!</p><p>Top picks for you:<span class="pairedWines">${pairedWines}</span></p><p>${apiData[1]}</p></div>`
-  ).append(`<div><form class="wineSelection" id="wineSelection">
+  ).append(`<div>
+      <form class="wineSelection" id="wineSelection">
         <legend> I'd love to get recommendations for:</legend>
         
-        <input type="radio" name="wineChoice1" value=${apiData[0][0]}>
+        <input type="radio" name="wineChoice" class='wineChoice' id='wineChoice1' value='${apiData[0][0]}'>
         <label for="wineChoice1">${apiData[0][0]}</label>
         
-        <input type="radio" name="wineChoice2" value=${apiData[0][1]}>
+        <input type="radio" name="wineChoice" class='wineChoice' id='wineChoice2' value='${apiData[0][1]}'>
         <label for="wineChoice2">${apiData[0][1]}</label>
         
-        <input type="radio" name="wineChoice3" value=${apiData[0][2]}>
+        <input type="radio" name="wineChoice" class='wineChoice' id='wineChoice3' value='${apiData[0][2]}'>
         <label for="wineChoice3">${apiData[0][2]}</label>
         
           
