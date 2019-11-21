@@ -27,38 +27,33 @@ wineApp.events = function() {
 
   $(".mainContainer").on("click", "#getResultsTwo", e => {
     let userChoiceTwo = "";
-    
-    e.preventDefault(); 
-    wineApp.loopThroughRadios();
-    // userChoiceTwo = $("input[name=wineChoice]").val();
-    // wineApp.getData(userChoiceTwo);
-    // wineApp.topSection.className += "topSectionHide";
-    // wineApp.mainContainer.innerHTML = "";
-  });
 
+    e.preventDefault();
+    wineApp.loopThroughRadios();
+    wineApp.mainContainer.innerHTML = "";
+  });
 };
 
 wineApp.loopThroughRadios = function() {
-  const radios = Array.from($('.wineChoice'))
+  const radios = Array.from($(".wineChoice"));
   let radioValue;
 
-  for (let i = 0; i< radios.length; i++){
+  for (let i = 0; i < radios.length; i++) {
     if (radios[i].checked) {
       // thats weird - look into this for jquery version
-      console.log(radios[i])
+      console.log(radios[i]);
 
       radioValue = radios[i].value;
-      console.log(radioValue)
+      console.log(radioValue);
     }
   }
 
   if (radioValue == null) {
-    alert('hello pick sometin dude')
+    alert("hello pick sometin dude");
     // maybe add a return here if we need it to stop
   }
   wineApp.getData2(radioValue);
-
-}
+};
 
 wineApp.startOver = function() {
   $(".mainContainer").html("").append(`<div class="topSection">
@@ -105,8 +100,8 @@ wineApp.getData = function(foodChoice) {
     });
 };
 
-wineApp.getData2 = function (wineUserChoice) {
-  console.log(wineUserChoice)
+wineApp.getData2 = function(wineUserChoice) {
+  console.log(wineUserChoice);
   wineApp.url2 = "https://api.spoonacular.com/food/wine/recommendation?";
 
   $.ajax({
@@ -117,18 +112,16 @@ wineApp.getData2 = function (wineUserChoice) {
       wine: wineUserChoice,
       number: 100,
       // maxPrice: "40", // STRETCH IT UP
-      apiKey: "b79077231aeb4404ae54b9a405920c64",
+      apiKey: "b79077231aeb4404ae54b9a405920c64"
     }
   })
-    .then(function (result) {
+    .then(function(result) {
       wineApp.cleanData2(result, wineUserChoice);
     })
-    .fail(function () {
+    .fail(function() {
       console.log("fail");
     });
 };
-
-// wineApp.pairedWines;
 
 wineApp.cleanData = function(apiData, userChoice) {
   let totalData = [];
@@ -139,43 +132,49 @@ wineApp.cleanData = function(apiData, userChoice) {
   wineApp.displayTypes(totalData, userChoice);
 };
 
-wineApp.cleanData2 = function (apiData, wineUserChoice) {
+wineApp.cleanData2 = function(apiData, wineUserChoice) {
   let totalData = [];
   totalData.push(apiData.recommendedWines);
-  wineApp.categorizeWine(totalData, wineUserChoice)
+  wineApp.categorizeWine(totalData, wineUserChoice);
   // wineApp.displayWines(totalData, wineUserChoice);
 };
 
-
-
-wineApp.categorizeWine = function (apiData, userWineInput) {
+wineApp.categorizeWine = function(apiData, userWineInput) {
   let cheapWine = [];
   let midWine = [];
   let highWine = [];
 
   apiData[0].forEach(function(option) {
-    let cleanOption = option.price.substr(1)
+    let cleanOption = option.price.substr(1);
     if (parseInt(cleanOption) >= 40) {
-        highWine.push(option)
+      highWine.push(option);
     } else if (parseInt(cleanOption) >= 15) {
-        midWine.push(option)
+      midWine.push(option);
     } else {
-        cheapWine.push(option)
+      cheapWine.push(option);
     }
-  })
-  
+  });
 
-  wineApp.randomize(cheapWine, midWine, highWine, userWineInput)
-}
+  wineApp.randomize(cheapWine, midWine, highWine, userWineInput);
+};
 
-wineApp.randomize = function (cheapWine, midWine, highWine, userWineInput) {
-  console.log(cheapWine)
-  console.log(midWine)
-  console.log(highWine) 
-  console.log(userWineInput) 
-  // displayTypes(cheapWine, midWine, highWine, userWineInput)
-}
+wineApp.randomize = function(cheapWine, midWine, highWine, userWineInput) {
+  let randomCheapWine = Math.floor(Math.random() * cheapWine.length);
+  let randomMidWine = Math.floor(Math.random() * midWine.length);
+  let randomHighWine = Math.floor(Math.random() * highWine.length);
+  console.log(
+    cheapWine[randomCheapWine],
+    midWine[randomMidWine],
+    highWine[randomHighWine]
+  );
 
+  wineApp.displayWines(
+    cheapWine[randomCheapWine],
+    midWine[randomMidWine],
+    highWine[randomHighWine],
+    userWineInput
+  );
+};
 
 // functions for activity
 wineApp.displayTypes = function(apiData, userInput) {
@@ -205,6 +204,61 @@ wineApp.displayTypes = function(apiData, userInput) {
       <button type="submit" id="getResultsTwo">Get recommedations</button>
       <button type="submit" id="startOver">Start over</button>
       </div>`);
+};
+
+wineApp.displayWines = function(
+  cheapWineRandom,
+  midWineRandom,
+  highWineRandom,
+  userWineInput
+) {
+  // console.log(cheapWineRandom, highWineRandom, midWineRandom, userWineInput);
+  $(".mainContainer")
+    .append(
+      `<div class="pageThreeTop"><p>You chose ${userWineInput}. Good choice!</p></div>`
+    )
+    .append(
+      `<div class="mainWineCard">
+        <div class="wineCard">
+          <div class="wineImgContainer">
+          <img src="${cheapWineRandom.imageUrl}" alt="a bottle of cheap wine">
+          </div>
+          <div class="wineTextContainer">
+            <h2>Affordable wine</h2>
+            <p>${cheapWineRandom.title}</p>
+            <p>${cheapWineRandom.description}</p>
+            <p>${cheapWineRandom.price}</p>
+            <p>You can buy it <a href="${cheapWineRandom.link}">here</a>.</p>
+          </div>
+        </div>
+        <div class="wineCard">
+          <div class="wineImgContainer">
+          <img src="${midWineRandom.imageUrl}" alt="a bottle of cheap wine">
+          </div>
+          <div class="wineTextContainer">
+            <h2>Affordable wine</h2>
+            <p>${midWineRandom.title}</p>
+            <p>${midWineRandom.description}</p>
+            <p>${midWineRandom.price}</p>
+            <p>You can buy it <a href="${midWineRandom.link}">here</a>.</p>
+          </div>
+        </div>
+        <div class="wineCard">
+          <div class="wineImgContainer">
+          <img src="${highWineRandom.imageUrl}" alt="a bottle of cheap wine">
+          </div>
+          <div class="wineTextContainer">
+            <h2>Affordable wine</h2>
+            <p>${highWineRandom.title}</p>
+            <p>${highWineRandom.description}</p>
+            <p>${highWineRandom.price}</p>
+            <p>You can buy it <a href="${highWineRandom.link}">here</a>.</p>
+          </div>
+        </div>
+      
+      </div>
+      <button type="submit" id="startOver">Start over</button>`
+    );
 };
 
 wineApp.init = () => {
