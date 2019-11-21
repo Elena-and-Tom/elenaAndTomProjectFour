@@ -50,7 +50,6 @@ wineApp.giveTypes = function (userInput, apiData) {
 
   // wineApp.mainContainer.innerHTML = ``
 
-
 }
 
 
