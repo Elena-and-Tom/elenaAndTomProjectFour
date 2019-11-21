@@ -53,8 +53,6 @@ wineApp.giveTypes = function (userInput, apiData) {
 
   wineApp.mainContainer.addClass('topSectionHide');
 
-
-
 }
 
 
