@@ -22,6 +22,7 @@ wineApp.events = function () {
 wineApp.getData = function(foodChoice) {
     wineApp.url = "https://api.spoonacular.com/food/wine/pairing?";
     let apiData = [];
+    
     $.ajax({
         url: wineApp.url,
         dataType: "json",
@@ -35,11 +36,13 @@ wineApp.getData = function(foodChoice) {
     .then(function (result) {
         console.log(result);
         apiData.push(result);
+
     })
     .fail(function () {
       console.log('fail');
     });
-      return apiData;
+
+    return apiData;
 
 }
 
@@ -48,7 +51,9 @@ wineApp.giveTypes = function (userInput, apiData) {
   // grab the data from the API
   console.log(userInput, apiData)
 
-  // wineApp.mainContainer.innerHTML = ``
+  wineApp.mainContainer.addClass('topSectionHide');
+
+
 
 }
 
