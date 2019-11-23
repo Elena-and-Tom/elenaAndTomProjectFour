@@ -428,6 +428,11 @@ html {
   font-size: 20px;
 }
 
+body {
+  font-size: 24px;
+  font-size: 1.2rem;
+}
+
 h1, h2, h3, p, li, ul, button {
   margin: 0px;
   padding: 0px;
@@ -470,4 +475,226 @@ body {
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap;
   /* added line */
+}
+
+.pageTwoTop {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: "Lora", serif;
+  font-style: italic;
+}
+
+.pageTwoTop p {
+  padding-bottom: 15px;
+}
+
+.pageTwoTop :last-child {
+  font-style: normal;
+  padding-top: 15px;
+  font-size: 20px;
+  font-size: 1rem;
+}
+
+.pairedWines {
+  font-family: "Lora", serif;
+  color: #e6ca85;
+  font-style: normal;
+}
+
+.wineSelection {
+  color: #ebeced;
+  font-family: "Lora", serif;
+  font-style: italic;
+  color: #e6ca85;
+  padding-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.wineSelection legend {
+  padding-bottom: 20px;
+}
+
+.wineSelection label {
+  padding: 10px 5px;
+  font-style: normal;
+  color: #ebeced;
+  cursor: pointer;
+}
+
+.wineSelection label:hover, .wineSelection label:focus {
+  color: #e69985;
+  outline-width: 0;
+}
+
+.wineSelection input {
+  display: none;
+}
+
+.pageTwoBottom button {
+  background-color: #e6ca85;
+  color: #20201e;
+  letter-spacing: 1.2;
+  padding: 15px 20px;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+.pageTwoBottom button:hover, .pageTwoBottom button:focus {
+  background-color: #e69985;
+}
+
+.mainContainer {
+  width: 100%;
+}
+
+.pageThreeTop {
+  height: 120px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.priceSlider p {
+  margin: 0 auto;
+  text-align: center;
+  height: 75px;
+}
+
+.mainWineCard {
+  height: 275px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.wineCard {
+  width: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pairedWines {
+  font-family: "Lora", serif;
+  color: #e6ca85;
+}
+
+.wineCard .wineImgContainer {
+  width: 175px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wineCard .wineImgContainer img {
+  width: 100%;
+}
+
+.wineCard .wineImgContainer p {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.242);
+}
+
+.wineTextContainer {
+  margin-top: 10%;
+  height: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wineTextContainer h2 {
+  font-size: 1.25rem;
+  margin-top: 10px;
+}
+
+.wineTextContainer a {
+  text-decoration: underline;
+  color: #ebeced;
+}
+
+.wineTextContainer p {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.wineTextContainer h3 {
+  font-size: 1rem;
+  color: #e6ca85;
+  text-align: center;
+}
+
+.bottomSectionThree {
+  width: 100%;
+  height: 100%;
+  padding-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.mainContainer .startOverThree {
+  margin: 0 auto;
+  margin-top: 7.5px;
+  padding: 7.5px;
+  background: #e6ca85;
+}
+
+.startOverThree:hover {
+  padding: 7.5px;
+  background: #ebeced;
+  color: #20201e;
+  cursor: pointer;
 }

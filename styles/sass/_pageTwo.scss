@@ -1,0 +1,70 @@
+.pageTwoTop {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: $baseFont;
+  font-style: italic;
+  p {
+    padding-bottom: 15px;
+  }
+  & :last-child {
+    font-style: normal;
+    padding-top: 15px;
+    @include fontSize(20);
+  }
+}
+
+.pairedWines {
+  font-family: $baseFont;
+  color: $accentColor;
+  font-style: normal;
+
+
+}
+
+.wineSelection {
+  color: $primaryColor;
+  font-family: $baseFont;
+  font-style: italic;
+  color: $accentColor;
+  padding-bottom: 20px;
+  display:flex;
+  flex-direction: column;
+  legend {
+    padding-bottom: 20px;
+  }
+    
+    label {
+      padding: 10px 5px;
+      font-style: normal;
+      color: $primaryColor;
+      cursor: pointer;
+      
+      &:hover,
+      &:focus {
+        color: #e69985;
+        outline-width: 0;
+      }
+      
+    }
+
+    input {
+      display:none;
+    }
+
+}
+
+
+.pageTwoBottom button {
+  background-color: $accentColor;
+  color: $darkColor;
+  letter-spacing: 1.2;
+  padding: 15px 20px;
+  margin-right: 30px;
+  cursor: pointer;
+  
+  &:hover,
+  &:focus {
+    background-color: #e69985;
+    
+  }
+}

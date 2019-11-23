@@ -2,6 +2,11 @@ html {
     font-size: 20px;
 }
 
+body {
+  @include fontSize(24);
+}
+
+
 h1, h2, h3, p, li, ul, button {
     margin: 0px;
     padding: 0px;

@@ -1,6 +1,97 @@
 
-.priceSlider {
+.mainContainer {
+    width: 100%;
+}
+.pageThreeTop {
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.priceSlider p {
     margin: 0 auto;
     text-align: center;
+    height: 75px;
 }
+.mainWineCard {
+    height: 275px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.wineCard {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.pairedWines {
+  font-family: $baseFont;
+  color: $accentColor;
+//   @include fontSize(24);
+}
+.wineCard .wineImgContainer {
+    width: 175px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.wineCard .wineImgContainer img {
+    width: 100%;
+}
+.wineCard .wineImgContainer p {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.242);
+}
+.wineTextContainer {
+    margin-top: 10%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.wineTextContainer h2 {
+    font-size: 1.25rem;
+    margin-top: 10px;
+}
+.wineTextContainer a {
+    text-decoration: underline;
+    color: $primaryColor;
+}
+.wineTextContainer p {
+    font-size: 1rem;
+    text-align: center;
+}
+.wineTextContainer h3 {
+    font-size: 1rem;
+    color: $accentColor;
+    text-align: center;
+}
+.bottomSectionThree {
+    width: 100%;
+    height: 100%;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.mainContainer .startOverThree {
+    margin: 0 auto;
+    margin-top: 7.5px;
+    padding: 7.5px;
+    background: $accentColor;
+    // transition: font-s 0.3s;
+}
+.startOverThree:hover {
+    padding: 7.5px;
+    background: $primaryColor;
+    color: $darkColor;
+    // padding: 12.5px;
+    cursor: pointer;
+}
+
+
+
 
