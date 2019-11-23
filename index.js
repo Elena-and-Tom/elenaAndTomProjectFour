@@ -15,9 +15,17 @@ wineApp.events = function() {
 
     e.preventDefault();
     userChoice = $("select[name=foodChoice]").val();
-    wineApp.getData(userChoice);
-    wineApp.topSection.className += "topSectionHide";
-    wineApp.mainContainer.innerHTML = "";
+   
+    if (userChoice == 'So, what are you eating tonight?') {
+      // to be sweetened up :)
+      alert('failed');
+    } else {
+      wineApp.getData(userChoice);
+      wineApp.topSection.className += "topSectionHide";
+      wineApp.mainContainer.innerHTML = "";
+    }
+    
+    
   });
 
   $(".mainContainer").on("click", "#startOver", e => {
@@ -30,7 +38,6 @@ wineApp.events = function() {
 
     e.preventDefault();
     wineApp.loopThroughRadios();
-    wineApp.mainContainer.innerHTML = "";
   });
 };
 
@@ -51,8 +58,12 @@ wineApp.loopThroughRadios = function() {
   if (radioValue == null) {
     alert("hello pick sometin dude");
     // maybe add a return here if we need it to stop
+    return;
+  } else {
+    wineApp.mainContainer.innerHTML = "";
+    wineApp.getData2(radioValue);
   }
-  wineApp.getData2(radioValue);
+  
 };
 
 wineApp.startOver = function() {
