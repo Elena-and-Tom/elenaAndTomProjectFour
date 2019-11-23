@@ -6,6 +6,15 @@ h1, h2, h3, p, li, ul, button {
     margin: 0px;
     padding: 0px;
     font-family: $baseFont;
+    color: $primaryColor;
+}
+button {
+    color: $darkColor;
+}
+
+.textEmphasis {
+    font-family: $accentFont;
+    color: $accentColor;
 }
 
 .wrapper {

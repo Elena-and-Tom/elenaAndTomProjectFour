@@ -432,6 +432,16 @@ h1, h2, h3, p, li, ul, button {
   margin: 0px;
   padding: 0px;
   font-family: "Lora", serif;
+  color: #ebeced;
+}
+
+button {
+  color: #20201e;
+}
+
+.textEmphasis {
+  font-family: "Dancing Script", cursive;
+  color: #e6ca85;
 }
 
 .wrapper {

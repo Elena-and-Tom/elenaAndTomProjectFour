@@ -188,7 +188,7 @@ wineApp.displayTypes = function(apiData, userInput) {
   pairedWines = apiData[0].join(", ");
 
   $(".mainContainer").append(
-    `<div class="pageTwoTop"><p>You chose ${userInput}. Good choice!</p><p>Top picks for you:<span class="pairedWines">${pairedWines}</span></p><p>${apiData[1]}</p></div>`
+    `<div class="pageTwoTop"><p>You chose a ${userInput}. Good choice!</p><p>Top picks for you:<span class="pairedWines textEmphasis">${pairedWines}</span></p><p>${apiData[1]}</p></div>`
   ).append(`<div>
       <form class="wineSelection" id="wineSelection">
         <legend> I'd love to get recommendations for:</legend>
@@ -218,7 +218,11 @@ wineApp.displayWines = function(
   // console.log(cheapWineRandom, highWineRandom, midWineRandom, userWineInput);
   $(".mainContainer")
     .append(
-      `<div class="pageThreeTop"><p>You chose ${userWineInput}. Good choice!</p></div>`
+      `<div class="pageThreeTop">
+        <p>You chose <span class='textEmphasis'>${userWineInput}</span>. A great choice and please see our tailored suggestions below!</p>
+        <div class='priceSlider'><p> Placeholder for Price</p></div>
+      </div>`
+
     )
     .append(
       `<div class="mainWineCard">
