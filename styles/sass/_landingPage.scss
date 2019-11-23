@@ -19,6 +19,10 @@
     }
 
    
+}
+select {
+  width: 100%;
+
 } 
 
 .bottomSection {
@@ -45,7 +49,7 @@
     }
 
     @include mq-mobile {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
 }
@@ -62,15 +66,12 @@
     }
 
     @include mq-largeMobile {
-        font-size: 0.8rem;
         line-height: 25px;
         padding: 0px 0px;
 
     }
 
-    @include mq-mobile {
-        font-size: 0.7rem;
-    }
+    
 }
 
 .userSelection, .getResults{

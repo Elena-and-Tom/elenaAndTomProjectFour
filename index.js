@@ -158,16 +158,37 @@ wineApp.categorizeWine = function (apiData, userWineInput) {
   let midWine = [];
   let highWine = [];
 
-  apiData[0].forEach(function (option) {
-    let cleanOption = option.price.substr(1);
-    if (parseInt(cleanOption) >= 40) {
-      highWine.push(option);
-    } else if (parseInt(cleanOption) >= 15) {
-      midWine.push(option);
-    } else {
-      cheapWine.push(option);
-    }
-  });
+  if (userWineInput === "gruener veltliner") {
+    apiData[0].forEach(function (option) {
+      let cleanOption = option.price.substr(1);
+      if (parseInt(cleanOption) >= 23) {
+        highWine.push(option);
+      } else if (parseInt(cleanOption) >= 17) {
+        midWine.push(option);
+      } else {
+        cheapWine.push(option);
+      }
+    });
+  } else {
+    apiData[0].forEach(function (option) {
+      let cleanOption = option.price.substr(1);
+      if (parseInt(cleanOption) >= 30) {
+        highWine.push(option);
+      } else if (parseInt(cleanOption) >= 15) {
+        midWine.push(option);
+      } else {
+        cheapWine.push(option);
+      }
+    });
+
+  }
+
+
+  console.log(apiData[0]);
+  console.log(cheapWine);
+  console.log(midWine);
+  console.log(highWine);
+
 
   wineApp.randomize(cheapWine, midWine, highWine, userWineInput);
 };
@@ -199,19 +220,19 @@ wineApp.displayTypes = function (apiData, userInput) {
   pairedWines = apiData[0].join(", ");
 
   $(".mainContainer").append(
-    `<div class="pageTwoTop"><p>You chose a <span class="pairedWines">${userInput}</span>. Good choice!</p><p>Top picks for you: <span class="pairedWines textEmphasis">${pairedWines}</span></p><p>${apiData[1]}</p></div>`
+    `<div class="pageTwoTop"><p>You chose a <span class="pairedWines">${userInput}</span>. Good choice!</p><p>Top picks for you: <span class="pairedWines textEmphasis">${pairedWines}</span></p><p class="pairingText">${apiData[1]}</p></div>`
   ).append(`<div class="pageTwoBottom">
       <form class="wineSelection" id="wineSelection">
         <legend> Select the wine you'd love to explore:</legend>
         
         <input type="radio" name="wineChoice" class='wineChoice' id='wineChoice1' value='${apiData[0][0]}'>
-        <label for="wineChoice1" tabindex="-1"><i class="fas fa-wine-bottle"> ${apiData[0][0]}</i></label>
+        <label for="wineChoice1" tabindex="-1"><i class="fas fa-wine-bottle"></i> ${apiData[0][0]}</label>
         
         <input type="radio" name="wineChoice" class='wineChoice' id='wineChoice2' value='${apiData[0][1]}'>
-        <label for="wineChoice2" tabindex="-1"><i class="fas fa-wine-bottle"> ${apiData[0][1]}</i></label>
+        <label for="wineChoice2" tabindex="-1"><i class="fas fa-wine-bottle"></i> ${apiData[0][1]}</label>
         
         <input type="radio" name="wineChoice" class='wineChoice' id='wineChoice3' value='${apiData[0][2]}'>
-        <label for="wineChoice3" tabindex="-1"><i class="fas fa-wine-bottle"> ${apiData[0][2]}</i></label>
+        <label for="wineChoice3" tabindex="-1"><i class="fas fa-wine-bottle"></i> ${apiData[0][2]}</label>
         
           
       </form>
