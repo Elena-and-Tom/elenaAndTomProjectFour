@@ -268,3 +268,196 @@ html {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+.topSection, .bottomSection {
+  height: 285px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .topSection, .bottomSection {
+    height: 325px;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+}
+
+.bottomSection {
+  height: 165px;
+}
+
+@media (max-width: 700px) {
+  .bottomSection {
+    padding: 0px 0px;
+    height: 125px;
+  }
+}
+
+.topSection .landingTitle {
+  color: #e6ca85;
+  font-family: "Dancing Script", cursive;
+  font-size: 4rem;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .topSection .landingTitle {
+    font-size: 3.3rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .topSection .landingTitle {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .topSection .landingTitle {
+    font-size: 2rem;
+  }
+}
+
+.topSection .landingText {
+  color: #ebeced;
+  padding: 0px 75px;
+  text-align: center;
+  line-height: 30px;
+}
+
+@media (max-width: 900px) {
+  .topSection .landingText {
+    font-size: 0.9rem;
+    padding: 0px 25px;
+  }
+}
+
+@media (max-width: 700px) {
+  .topSection .landingText {
+    font-size: 0.8rem;
+    line-height: 25px;
+    padding: 0px 0px;
+  }
+}
+
+@media (max-width: 400px) {
+  .topSection .landingText {
+    font-size: 0.7rem;
+  }
+}
+
+.userSelection, .getResults {
+  background: #ebeced;
+  color: #20201e;
+  text-align: center;
+  margin-top: 50px;
+}
+
+@media (max-width: 700px) {
+  .userSelection, .getResults {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 400px) {
+  .userSelection, .getResults {
+    margin-top: 75px;
+  }
+}
+
+.getResults {
+  padding: 7.5px;
+  background: #e6ca85;
+}
+
+.getResults:hover {
+  padding: 7.5px;
+  background: #ebeced;
+  color: #20201e;
+  cursor: pointer;
+}
+
+.navList {
+  text-decoration: none;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 150px;
+  color: #ebeced;
+}
+
+.logoContainer {
+  width: 100px;
+}
+
+.logoContainer img {
+  width: 100%;
+}
+
+nav p {
+  color: #ebeced;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+html {
+  font-size: 20px;
+}
+
+h1, h2, h3, p, li, ul, button {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Lora", serif;
+}
+
+.wrapper {
+  max-width: 1080px;
+  width: 85%;
+  margin: 0px auto;
+  height: 100%;
+}
+
+body {
+  background: url("../assets/backgroundImg.png");
+  background-size: contain;
+  background-color: #20201e;
+  background-repeat: no-repeat;
+  height: 650px;
+  background-position: center;
+}
+
+.visuallyHidden:not(:focus):not(:active) {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+  /* added line */
+}

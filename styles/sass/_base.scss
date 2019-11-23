@@ -1,0 +1,36 @@
+html {
+    font-size: 20px;
+}
+
+h1, h2, h3, p, li, ul, button {
+    margin: 0px;
+    padding: 0px;
+    font-family: $baseFont;
+}
+
+.wrapper {
+    max-width: 1080px; 
+    width: 85%;
+    margin: 0px auto;
+    height: 100%;
+}
+
+
+body {
+    background: url('../assets/backgroundImg.png');
+    background-size: contain;
+    background-color:$darkColor;
+    background-repeat: no-repeat;
+    height: 650px;
+    background-position: center;
+}
+
+.visuallyHidden:not(:focus):not(:active) { 
+	  position: absolute !important;
+	  height: 1px; 
+	  width: 1px;
+	  overflow: hidden;
+	  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	  clip: rect(1px, 1px, 1px, 1px);
+	  white-space: nowrap; /* added line */
+}

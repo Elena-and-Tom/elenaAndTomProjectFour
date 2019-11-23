@@ -1,0 +1,109 @@
+// * {
+//     border: 1px red solid;
+// }
+
+
+.topSection, .bottomSection {
+    height: 285px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+
+    @include mq-largeMobile {
+        height: 325px;
+        justify-content: space-evenly;
+
+
+    }
+
+   
+} 
+
+.bottomSection {
+    height: 165px;
+    @include mq-largeMobile {
+        padding: 0px 0px;
+        height: 125px;
+
+    }
+}
+
+
+.topSection .landingTitle {
+    color: $accentColor;
+    font-family: $accentFont;
+    font-size: 4rem;
+    text-align: center;
+    @include mq-tablet {
+        font-size: 3.3rem; 
+    }
+
+    @include mq-largeMobile {
+        font-size: 3rem;
+    }
+
+    @include mq-mobile {
+        font-size: 2rem;
+    }
+
+}
+
+.topSection .landingText {
+    color: $primaryColor;
+    padding: 0px 75px;
+    text-align: center;
+    line-height: 30px;
+    
+    @include mq-tablet {
+        font-size: 0.9rem; 
+        padding: 0px 25px;
+    }
+
+    @include mq-largeMobile {
+        font-size: 0.8rem;
+        line-height: 25px;
+        padding: 0px 0px;
+
+    }
+
+    @include mq-mobile {
+        font-size: 0.7rem;
+    }
+}
+
+.userSelection, .getResults{
+    background: $primaryColor;
+    color: $darkColor;
+    text-align: center;
+    margin-top: 50px;
+    @include mq-largeMobile {
+        margin-top: 40px;
+    }
+
+    @include mq-mobile {
+        margin-top: 75px;
+    }
+}
+
+
+.getResults {
+    padding: 7.5px;
+    background: $accentColor;
+    // transition: font-s 0.3s;
+}
+
+.getResults:hover {
+    padding: 7.5px;
+    background: $primaryColor;
+    color: $darkColor;
+    // padding: 12.5px;
+    cursor: pointer;
+}
+
+
+
+
+
+

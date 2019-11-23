@@ -1,0 +1,25 @@
+.navList {
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    color: $primaryColor;
+
+}
+
+.logoContainer {
+    width: 100px;
+}
+
+.logoContainer img {
+    width: 100%;
+}
+
+nav p {
+    color: $primaryColor;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
