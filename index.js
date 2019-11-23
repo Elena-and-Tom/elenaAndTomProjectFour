@@ -57,25 +57,28 @@ wineApp.loopThroughRadios = function() {
 
 wineApp.startOver = function() {
   $(".mainContainer").html("").append(`<div class="topSection">
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet ipsam,
-          id repudiandae facere ut magni! Facere, expedita? Totam, fuga iure.
-          Minus officiis deleniti earum rerum quo dicta unde sit sapiente.
-        </p>
-      </div>
-      <form class="userSelection" id="userSelection">
-        <label for="foodChoice">Please select the food</label>
-        <select name="foodChoice">
-          <option selected="selected">Select the food</option>
-          <option value="red meat">Red meat</option>
-          <option value="chicken">White meat </option>
-          <option value="pizza">Pizza</option>
-          <option value="risotto">Risotto(V)</option>
-          <option value="fish">Fish</option>
-        </select>
-      </form>
-      <button type="submit" id="getResults">Explore suggestions</button>
-    </div>`);
+          <h1 class='landingTitle'>Your Personal Sommelier</h1>
+          <p class='landingText'>
+            Let us make your dinner unforgettable. Take a journey with our virtual Sommelier who will suggest you wines tailored to your needs.
+          </p>
+          <p class='landingText'>
+            Choose a food option below to start! 
+          </p>
+        </div>
+        <div class="bottomSection">
+          <form class="userSelection" id="userSelection">
+            <label for="foodChoice" class='visuallyHidden'>Please select the food</label>
+            <select name="foodChoice">
+              <option selected="selected">So, what are you eating tonight?</option>
+              <option value="red meat">Red meat</option>
+              <option value="chicken">White meat </option>
+              <option value="pizza">Pizza</option>
+              <option value="risotto">Risotto(V)</option>
+              <option value="fish">Fish</option>
+            </select>
+          </form>
+          <button type="submit" id="getResults" class='getResults'>Explore suggestions</button>
+        </div>`);
 };
 
 // functions for api calls
