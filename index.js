@@ -158,10 +158,10 @@ wineApp.categorizeWine = function (apiData, userWineInput) {
   let midWine = [];
   let highWine = [];
 
-  if (userWineInput === "gruener veltliner") {
+  if (userWineInput === "gruener veltliner" || userWineInput === "sparkling rose") {
     apiData[0].forEach(function (option) {
       let cleanOption = option.price.substr(1);
-      if (parseInt(cleanOption) >= 23) {
+      if (parseInt(cleanOption) >= 24) {
         highWine.push(option);
       } else if (parseInt(cleanOption) >= 17) {
         midWine.push(option);
