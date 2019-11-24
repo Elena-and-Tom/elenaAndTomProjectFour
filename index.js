@@ -219,13 +219,13 @@ wineApp.displayTypes = function(apiData, userInput) {
         <legend> Select the wine you'd love to explore:</legend>
         
         <input type="radio" name="wineChoice" class='wineChoice' id='wineChoice1' value='${apiData[0][0]}'>
-        <label for="wineChoice1" tabindex="-1"><i class="fas fa-wine-bottle"></i> ${apiData[0][0]}</label>
+        <label for="wineChoice1" tabindex="0"><i class="fas fa-wine-bottle"></i> ${apiData[0][0]}</label>
         
         <input type="radio" name="wineChoice" class='wineChoice' id='wineChoice2' value='${apiData[0][1]}'>
-        <label for="wineChoice2" tabindex="-1"><i class="fas fa-wine-bottle"></i> ${apiData[0][1]}</label>
+        <label for="wineChoice2" tabindex="0"><i class="fas fa-wine-bottle"></i> ${apiData[0][1]}</label>
         
         <input type="radio" name="wineChoice" class='wineChoice' id='wineChoice3' value='${apiData[0][2]}'>
-        <label for="wineChoice3" tabindex="-1"><i class="fas fa-wine-bottle"></i> ${apiData[0][2]}</label>
+        <label for="wineChoice3" tabindex="0"><i class="fas fa-wine-bottle"></i> ${apiData[0][2]}</label>
         
           
       </form>

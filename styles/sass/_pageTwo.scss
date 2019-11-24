@@ -34,20 +34,33 @@
     padding-bottom: 20px;
   }
 
-  label {
+  input[type="radio"] {
+    display: none;
+  }
+
+  input[type="radio"] + label {
     padding: 10px 5px;
     font-style: normal;
     color: $primaryColor;
     cursor: pointer;
+    &:hover,
+    &:focus,
+    &:active {
+      color: $hoverColor;
+      outline-style: none;
+    }
   }
 
-  input {
-    opacity: 0;
-  }
-  input:focus + label,
-  input:hover + label {
+  input[type="radio"]:checked + label {
     color: $hoverColor;
   }
+
+  // input:focus + label,
+  // input:hover + label,
+  // input:active + label {
+  //   color: $hoverColor;
+  //   outline-style: none;
+  // }
 }
 
 .pageTwoBottom {
