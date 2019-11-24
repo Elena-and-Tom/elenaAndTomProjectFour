@@ -2,109 +2,104 @@
 //     border: 1px red solid;
 // }
 
+.topSection,
+.bottomSection {
+  height: 285px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
 
-.topSection, .bottomSection {
-    height: 285px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
-
-    @include mq-largeMobile {
-        height: 325px;
-        justify-content: space-evenly;
-
-
-    }
-
-   
+  @include media(700px) {
+    height: 325px;
+    justify-content: space-evenly;
+  }
 }
 select {
   width: 100%;
-
-} 
-
-.bottomSection {
-    height: 165px;
-    @include mq-largeMobile {
-        padding: 0px 0px;
-        height: 125px;
-
-    }
+  padding: 2px 8px;
+  border: 2px solid $accentColor;
+  background: $primaryColor;
+  &:focus {
+    border: 2px solid $hoverColor;
+  }
 }
 
+.bottomSection {
+  height: 165px;
+  @include media(700px) {
+    padding: 0px 0px;
+    height: 125px;
+  }
+}
 
 .topSection .landingTitle {
-    color: $accentColor;
-    font-family: $accentFont;
-    font-size: 4rem;
-    text-align: center;
-    @include mq-tablet {
-        font-size: 3.3rem; 
-    }
+  color: $accentColor;
+  font-family: $accentFont;
+  @include fontSize(80);
+  text-align: center;
+  @include media(900px) {
+    @include fontSize(66);
+  }
 
-    @include mq-largeMobile {
-        font-size: 3rem;
-    }
+  @include media(700px) {
+    @include fontSize(60);
+  }
 
-    @include mq-mobile {
-        font-size: 2.5rem;
-    }
-
+  @include media(400px) {
+    @include fontSize(50);
+  }
 }
 
 .topSection .landingText {
-    color: $primaryColor;
-    padding: 0px 75px;
-    text-align: center;
-    line-height: 30px;
-    
-    @include mq-tablet {
-        font-size: 0.9rem; 
-        padding: 0px 25px;
-    }
+  color: $primaryColor;
+  padding: 0px 75px;
+  text-align: center;
+  line-height: 30px;
 
-    @include mq-largeMobile {
-        line-height: 25px;
-        padding: 0px 0px;
+  @include media(900px) {
+    @include fontSize(18);
+    padding: 0px 25px;
+  }
 
-    }
-
-    
+  @include media(700px) {
+    line-height: 25px;
+    padding: 0px 0px;
+  }
 }
 
-.userSelection, .getResults{
-    background: $primaryColor;
-    color: $darkColor;
-    text-align: center;
-    margin-top: 50px;
-    @include mq-largeMobile {
-        margin-top: 40px;
-    }
+.userSelection,
+.getResults {
+  background: $primaryColor;
+  color: $darkColor;
+  text-align: center;
+  margin-top: 50px;
+  @include media(700px) {
+    margin-top: 40px;
+  }
 
-    @include mq-mobile {
-        margin-top: 75px;
-    }
+  @include media(400px) {
+    margin-top: 60px;
+  }
 }
-
 
 .getResults {
-    padding: 7.5px;
-    background: $accentColor;
-    // transition: font-s 0.3s;
-}
-
-.getResults:hover {
-    padding: 7.5px;
-    background: $primaryColor;
+  padding: 15px 20px;
+  background: $accentColor;
+  &:hover,
+  &:focus {
+    background: $hoverColor;
     color: $darkColor;
-    // padding: 12.5px;
     cursor: pointer;
+  }
 }
 
-
-
-
-
-
+.swal-text,
+.swal-button--confirm {
+  @include fontSize(24);
+}
+.swal-button--confirm {
+  background: $accentColor;
+  position: relative;
+}

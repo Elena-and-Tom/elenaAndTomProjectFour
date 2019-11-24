@@ -269,7 +269,8 @@ html {
   overflow: hidden;
 }
 
-.topSection, .bottomSection {
+.topSection,
+.bottomSection {
   height: 285px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -286,8 +287,9 @@ html {
   text-align: center;
 }
 
-@media (max-width: 700px) {
-  .topSection, .bottomSection {
+@media only screen and (max-width: 700px) {
+  .topSection,
+  .bottomSection {
     height: 325px;
     -webkit-box-pack: space-evenly;
         -ms-flex-pack: space-evenly;
@@ -297,13 +299,20 @@ html {
 
 select {
   width: 100%;
+  padding: 2px 8px;
+  border: 2px solid #e6ca85;
+  background: #ebeced;
+}
+
+select:focus {
+  border: 2px solid #e69985;
 }
 
 .bottomSection {
   height: 165px;
 }
 
-@media (max-width: 700px) {
+@media only screen and (max-width: 700px) {
   .bottomSection {
     padding: 0px 0px;
     height: 125px;
@@ -313,24 +322,28 @@ select {
 .topSection .landingTitle {
   color: #e6ca85;
   font-family: "Dancing Script", cursive;
+  font-size: 80px;
   font-size: 4rem;
   text-align: center;
 }
 
-@media (max-width: 900px) {
+@media only screen and (max-width: 900px) {
   .topSection .landingTitle {
+    font-size: 66px;
     font-size: 3.3rem;
   }
 }
 
-@media (max-width: 700px) {
+@media only screen and (max-width: 700px) {
   .topSection .landingTitle {
+    font-size: 60px;
     font-size: 3rem;
   }
 }
 
-@media (max-width: 400px) {
+@media only screen and (max-width: 400px) {
   .topSection .landingTitle {
+    font-size: 50px;
     font-size: 2.5rem;
   }
 }
@@ -342,49 +355,63 @@ select {
   line-height: 30px;
 }
 
-@media (max-width: 900px) {
+@media only screen and (max-width: 900px) {
   .topSection .landingText {
+    font-size: 18px;
     font-size: 0.9rem;
     padding: 0px 25px;
   }
 }
 
-@media (max-width: 700px) {
+@media only screen and (max-width: 700px) {
   .topSection .landingText {
     line-height: 25px;
     padding: 0px 0px;
   }
 }
 
-.userSelection, .getResults {
+.userSelection,
+.getResults {
   background: #ebeced;
   color: #20201e;
   text-align: center;
   margin-top: 50px;
 }
 
-@media (max-width: 700px) {
-  .userSelection, .getResults {
+@media only screen and (max-width: 700px) {
+  .userSelection,
+  .getResults {
     margin-top: 40px;
   }
 }
 
-@media (max-width: 400px) {
-  .userSelection, .getResults {
-    margin-top: 75px;
+@media only screen and (max-width: 400px) {
+  .userSelection,
+  .getResults {
+    margin-top: 60px;
   }
 }
 
 .getResults {
-  padding: 7.5px;
+  padding: 15px 20px;
   background: #e6ca85;
 }
 
-.getResults:hover {
-  padding: 7.5px;
-  background: #ebeced;
+.getResults:hover, .getResults:focus {
+  background: #e69985;
   color: #20201e;
   cursor: pointer;
+}
+
+.swal-text,
+.swal-button--confirm {
+  font-size: 24px;
+  font-size: 1.2rem;
+}
+
+.swal-button--confirm {
+  background: #e6ca85;
+  position: relative;
 }
 
 .navList {
@@ -528,13 +555,17 @@ body {
   cursor: pointer;
 }
 
-.wineSelection label:hover, .wineSelection label:focus {
-  color: #e69985;
-  outline-width: 0;
+.wineSelection input {
+  opacity: 0;
 }
 
-.wineSelection input {
-  display: none;
+.wineSelection input:focus + label,
+.wineSelection input:hover + label {
+  color: #e69985;
+}
+
+.pageTwoBottom {
+  margin-bottom: 50px;
 }
 
 .pageTwoBottom button {
@@ -548,7 +579,11 @@ body {
 
 @media only screen and (max-width: 590px) {
   .pageTwoBottom button {
-    margin-top: 50px;
+    margin-top: 30px;
+    position: relative;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+            transform: translate(-50%);
   }
 }
 
@@ -577,13 +612,26 @@ body {
           align-items: center;
 }
 
+.pageThreeTop p {
+  font-style: italic;
+}
+
+@media only screen and (max-width: 700px) {
+  .pageThreeTop p {
+    text-align: center;
+  }
+}
+
 .priceSlider p {
   margin: 0 auto;
   text-align: center;
   height: 75px;
+  padding-top: 10px;
+  font-style: normal;
 }
 
 .mainWineCard {
+  margin-top: 30px;
   height: 275px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -595,6 +643,22 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+@media only screen and (max-width: 700px) {
+  .mainWineCard {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: auto;
+  }
 }
 
 .wineCard {
@@ -613,9 +677,19 @@ body {
           align-items: center;
 }
 
+@media only screen and (max-width: 700px) {
+  .wineCard {
+    padding-top: 30px;
+    width: 100%;
+  }
+}
+
 .pairedWines {
   font-family: "Lora", serif;
   color: #e6ca85;
+  font-size: 24px;
+  font-size: 1.2rem;
+  font-style: normal;
 }
 
 .wineCard .wineImgContainer {
@@ -637,8 +711,9 @@ body {
 }
 
 .wineCard .wineImgContainer p {
-  font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.242);
+  font-size: 15px;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .wineTextContainer {
@@ -659,7 +734,14 @@ body {
           align-items: center;
 }
 
+@media only screen and (max-width: 700px) {
+  .wineTextContainer {
+    padding-top: 0px;
+  }
+}
+
 .wineTextContainer h2 {
+  font-size: 25px;
   font-size: 1.25rem;
   margin-top: 10px;
 }
@@ -669,12 +751,24 @@ body {
   color: #ebeced;
 }
 
+.wineTextContainer a:hover, .wineTextContainer a:focus {
+  color: #e69985;
+}
+
 .wineTextContainer p {
+  font-size: 20px;
   font-size: 1rem;
   text-align: center;
 }
 
+@media only screen and (max-width: 700px) {
+  .wineTextContainer p {
+    padding-top: 10px;
+  }
+}
+
 .wineTextContainer h3 {
+  font-size: 20px;
   font-size: 1rem;
   color: #e6ca85;
   text-align: center;
@@ -684,6 +778,7 @@ body {
   width: 100%;
   height: 100%;
   padding-top: 20px;
+  margin-bottom: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -694,14 +789,12 @@ body {
 
 .mainContainer .startOverThree {
   margin: 0 auto;
-  margin-top: 7.5px;
-  padding: 7.5px;
+  margin-top: 30px;
+  padding: 15px 20px;
   background: #e6ca85;
 }
 
-.startOverThree:hover {
-  padding: 7.5px;
-  background: #ebeced;
-  color: #20201e;
+.mainContainer .startOverThree:hover, .mainContainer .startOverThree:focus {
+  background: #e69985;
   cursor: pointer;
 }

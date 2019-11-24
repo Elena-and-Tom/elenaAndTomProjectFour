@@ -19,8 +19,6 @@
   color: $accentColor;
   font-style: normal;
   @include fontSize(24);
-
-
 }
 
 .wineSelection {
@@ -29,32 +27,32 @@
   font-style: italic;
   color: $accentColor;
   padding-bottom: 20px;
-  display:flex;
+  display: flex;
   flex-direction: column;
+
   legend {
     padding-bottom: 20px;
   }
-    
-    label {
-      padding: 10px 5px;
-      font-style: normal;
-      color: $primaryColor;
-      cursor: pointer;
-      
-      &:hover,
-      &:focus {
-        color: #e69985;
-        outline-width: 0;
-      }
-      
-    }
 
-    input {
-      display:none;
-    }
+  label {
+    padding: 10px 5px;
+    font-style: normal;
+    color: $primaryColor;
+    cursor: pointer;
+  }
 
+  input {
+    opacity: 0;
+  }
+  input:focus + label,
+  input:hover + label {
+    color: $hoverColor;
+  }
 }
 
+.pageTwoBottom {
+  margin-bottom: 50px;
+}
 
 .pageTwoBottom button {
   background-color: $accentColor;
@@ -62,16 +60,17 @@
   letter-spacing: 1.2;
   padding: 15px 20px;
   margin-right: 30px;
-  @include media(590px){
-      margin-top:50px;
-      //center buttons
-  };
-  
+  @include media(590px) {
+    margin-top: 30px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
   cursor: pointer;
-  
+
   &:hover,
   &:focus {
-    background-color: #e69985;
-    
+    background-color: $hoverColor;
   }
 }
