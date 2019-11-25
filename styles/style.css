@@ -548,19 +548,24 @@ body {
   padding-bottom: 20px;
 }
 
-.wineSelection label {
+.wineSelection input[type="radio"] {
+  -moz-appearance: none;
+  display: none;
+}
+
+.wineSelection input[type="radio"] + label {
   padding: 10px 5px;
   font-style: normal;
   color: #ebeced;
   cursor: pointer;
 }
 
-.wineSelection input {
-  opacity: 0;
+.wineSelection input[type="radio"] + label:hover, .wineSelection input[type="radio"] + label:focus, .wineSelection input[type="radio"] + label:active, .wineSelection input[type="radio"] + label:checked {
+  color: #e69985;
+  outline-style: none;
 }
 
-.wineSelection input:focus + label,
-.wineSelection input:hover + label {
+.wineSelection input[type="radio"]:checked + label {
   color: #e69985;
 }
 

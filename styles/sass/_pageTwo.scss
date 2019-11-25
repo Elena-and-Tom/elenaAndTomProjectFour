@@ -46,7 +46,8 @@
     cursor: pointer;
     &:hover,
     &:focus,
-    &:active {
+    &:active,
+    &:checked {
       color: $hoverColor;
       outline-style: none;
     }
@@ -55,13 +56,6 @@
   input[type="radio"]:checked + label {
     color: $hoverColor;
   }
-
-  // input:focus + label,
-  // input:hover + label,
-  // input:active + label {
-  //   color: $hoverColor;
-  //   outline-style: none;
-  // }
 }
 
 .pageTwoBottom {
