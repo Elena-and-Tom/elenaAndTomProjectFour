@@ -636,7 +636,6 @@ body {
 }
 
 .mainWineCard {
-  margin-top: 30px;
   height: 275px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -761,15 +760,10 @@ body {
 }
 
 .wineTextContainer p {
+  padding-top: 10px;
   font-size: 20px;
   font-size: 1rem;
   text-align: center;
-}
-
-@media only screen and (max-width: 700px) {
-  .wineTextContainer p {
-    padding-top: 10px;
-  }
 }
 
 .wineTextContainer h3 {
@@ -792,11 +786,22 @@ body {
           justify-content: center;
 }
 
+@media only screen and (max-width: 700px) {
+  .bottomSectionThree {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 .mainContainer .startOverThree {
   margin: 0 auto;
   margin-top: 30px;
+  background-color: #e6ca85;
+  color: #20201e;
+  letter-spacing: 1.2;
   padding: 15px 20px;
-  background: #e6ca85;
 }
 
 .mainContainer .startOverThree:hover, .mainContainer .startOverThree:focus {
@@ -887,6 +892,7 @@ body {
   line-height: 25px;
   padding: 0px 2px;
   padding-top: 20px;
+  color: #20201e;
 }
 
 .aMap {
@@ -894,7 +900,8 @@ body {
   text-decoration: none;
 }
 
-.aMap:hover {
+.aMap:hover,
+.aMap:focus {
   color: #101010;
 }
 
@@ -1090,4 +1097,11 @@ body {
 
 .findLocation button {
   font-size: 15px;
+  padding: 8px 5px;
+  background: #e6ca85;
+  font-weight: bold;
+}
+
+.findLocation button:focus, .findLocation button:hover {
+  background: #e69985;
 }

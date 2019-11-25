@@ -1,31 +1,22 @@
-// to do
-// i) add more shops
-// ii) link it to the core app
-// iii) clean up the responsiveness
-// iv) clean up the code and comments
-// v) add button to find locations
-// set up mapbox
+
 mapboxgl.accessToken =
   "pk.eyJ1IjoidG9tc3R1YXJ0MTIzIiwiYSI6ImNrMzV6MGo4ZTBvMWszZHJ6cmg3NHBtejkifQ.BW0Tcui0tMfNeFIUMTwz9g";
-// here I've built the initial map with Juno as the starting location
+
+// here we've built the initial map with Juno as the starting location
 let map = new mapboxgl.Map({
   // container id specified in the HTML
   container: "map",
-  // style URL
+  // mapbox style URL for the map
   style: "mapbox://styles/mapbox/light-v10",
   // set initial location to Juno College
   center: [-79.39786, 43.64821],
-  // initial zoom
+  // initial zoom height of the viewport
   zoom: 13
 });
-// here I've used this guide to enable user location tracking on the page - https://docs.mapbox.com/mapbox-gl-js/example/locate-user/
-// map.addControl(new mapboxgl.GeolocateControl({
-//     positionOptions: {
-//         enableHighAccuracy: true
-//     },
-//     trackUserLocation: true
-// }));
-// here I've used this stack overflow to solve the find lcoation bug to enable user location tracking on the page  https://stackoverflow.com/questions/56273097/how-to-locate-a-user-without-clicking-on-the-control-button-mapbox-api-javasc
+
+// an alternative to the location guide below - https://docs.mapbox.com/mapbox-gl-js/example/locate-user/
+
+// here we've used this stack overflow guide to enable user location tracking on page load - https://stackoverflow.com/questions/56273097/how-to-locate-a-user-without-clicking-on-the-control-button-mapbox-api-javasc
 navigator.geolocation.getCurrentPosition(position => {
   const userCoordinates = [position.coords.longitude, position.coords.latitude];
   map.addSource("user-coordinates", {
@@ -47,8 +38,8 @@ navigator.geolocation.getCurrentPosition(position => {
     center: userCoordinates,
     zoom: 14
   });
-  // let locationButton = document.getElementsByClassName('findLocation');
-  // here I created a my location button that recalls the flyTo location function
+
+  // here we created a  my location button that recalls the flyTo location function made above
   $(".findLocation").on("click", function() {
     map.flyTo({
       center: userCoordinates,
@@ -56,17 +47,21 @@ navigator.geolocation.getCurrentPosition(position => {
     });
   });
 });
-// here I've used this guide to add zoom in and out  - https://docs.mapbox.com/mapbox-gl-js/example/navigation/
-map.addControl(new mapboxgl.NavigationControl());
-// here I've used this guide to add directions functionality - https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-directions/
+
+// for future addition follow this guide to add zoom in and out buttons - https://docs.mapbox.com/mapbox-gl-js/example/navigation/
+
+// here we've used this guide to add directions functionality - https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-directions/
 map.addControl(
   new MapboxDirections({
     accessToken: mapboxgl.accessToken
   }),
+  // positioned the nav in the bottom left
   "bottom-left"
 );
-// here I've followed this walk through guide and adapted the code to add LCBO stores on the map and in the sidebar  - https://docs.mapbox.com/help/tutorials/building-a-store-locator/
-// list of LCBO STORES
+
+// here we've followed this walk through guide and adapted the code to add LCBO stores on the map and in the sidebar - https://docs.mapbox.com/help/tutorials/building-a-store-locator/
+
+// first step of this guide is to add a objet listing all the LCBO STORES in Toronto
 let stores = {
   type: "FeatureCollection",
   features: [
@@ -276,6 +271,7 @@ let stores = {
     }
   ]
 };
+
 // This adds the data to the map
 map.on("load", function(e) {
   // Add the data to your map as a layer
@@ -321,12 +317,14 @@ map.on("click", function(e) {
     listing.classList.add("active");
   }
 });
+
 function flyToStore(currentFeature) {
   map.flyTo({
     center: currentFeature.geometry.coordinates,
     zoom: 13
   });
 }
+
 function createPopUp(currentFeature) {
   let popUps = document.getElementsByClassName("mapboxgl-popup");
   if (popUps[0]) popUps[0].remove();

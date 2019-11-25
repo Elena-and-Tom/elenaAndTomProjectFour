@@ -22,7 +22,6 @@
   font-style: normal;
 }
 .mainWineCard {
-  margin-top: 30px;
   height: 275px;
   display: flex;
   flex-direction: row;
@@ -88,11 +87,10 @@
   }
 }
 .wineTextContainer p {
+  padding-top: 10px;
   @include fontSize(20);
   text-align: center;
-  @include media(700px) {
-    padding-top: 10px;
-  }
+  
 }
 .wineTextContainer h3 {
   @include fontSize(20);
@@ -106,15 +104,22 @@
   margin-bottom: 50px;
   display: flex;
   justify-content: center;
+   @include media(700px) {
+    flex-direction: column;
+    
+  }
 }
 .mainContainer .startOverThree {
   margin: 0 auto;
   margin-top: 30px;
+  background-color: $accentColor;
+  color: $darkColor;
+  letter-spacing: 1.2;
   padding: 15px 20px;
-  background: $accentColor;
   &:hover,
   &:focus {
     background: $hoverColor;
     cursor: pointer;
   }
+
 }

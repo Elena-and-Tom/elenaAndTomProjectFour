@@ -1,3 +1,5 @@
+// Note - a lot of this styling guide has been shared through the Mapbox guides (see links in the map.js)
+
 .bodyMap {
   background: #404040;
   color: #f8f8f8;
@@ -67,13 +69,16 @@
   line-height: 25px;
   padding: 0px 2px;
   padding-top: 20px;
+  color: $darkColor;
 }
 .aMap {
   color: #404040;
   text-decoration: none;
 }
-.aMap:hover {
+.aMap:hover,
+.aMap:focus {
   color: #101010;
+
 }
 .sidebar {
   position: absolute;
@@ -227,4 +232,12 @@
 }
 .findLocation button {
   font-size: 15px;
+  padding: 8px 5px;
+  background: $accentColor;
+  font-weight: bold;
+  &:focus,
+  &:hover {
+    background: $hoverColor;
+  }
+  
 }

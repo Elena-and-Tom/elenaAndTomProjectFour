@@ -31,7 +31,6 @@ wineApp.events = function() {
   $(".mainContainer").on("click", "#goBack", e => {
     e.preventDefault();
     wineApp.getData(wineApp.userFood[0]);
-    console.log(wineApp.userFood[0]);
     wineApp.mainContainer.innerHTML = "";
   });
 
@@ -49,11 +48,7 @@ wineApp.loopThroughRadios = function() {
 
   for (let i = 0; i < radios.length; i++) {
     if (radios[i].checked) {
-      // thats weird - look into this for jquery version
-      console.log(radios[i]);
-
       radioValue = radios[i].value;
-      console.log(radioValue);
     }
   }
 
@@ -110,20 +105,18 @@ wineApp.getData = function(foodChoice) {
     data: {
       food: foodChoice,
       maxPrice: "40",
-      apiKey: "3ab0c1e3e20d429aac3b15aa8f331e1e"
+      apiKey: "98162948a5504d3181cf99fb1f42ea76"
     }
   })
     .then(function(result) {
       wineApp.cleanData(result, foodChoice);
-      console.log(result);
     })
     .fail(function() {
-      console.log("fail");
+      wineApp.mainContainer.innerHTML = `<p>Sorry, we are experiencing some technical issues. Please try again soon :)</p>`
     });
 };
 
 wineApp.getData2 = function(wineUserChoice) {
-  console.log(wineUserChoice);
   wineApp.url2 = "https://api.spoonacular.com/food/wine/recommendation?";
 
   $.ajax({
@@ -133,14 +126,14 @@ wineApp.getData2 = function(wineUserChoice) {
     data: {
       wine: wineUserChoice,
       number: 100,
-      apiKey: "3ab0c1e3e20d429aac3b15aa8f331e1e"
+      apiKey: "98162948a5504d3181cf99fb1f42ea76"
     }
   })
     .then(function(result) {
       wineApp.cleanData2(result, wineUserChoice);
     })
     .fail(function() {
-      console.log("fail");
+      wineApp.mainContainer.innerHTML = `<p>Sorry, we are experiencing some technical issues. Please try again soon :)</p>`
     });
 };
 
@@ -151,14 +144,12 @@ wineApp.cleanData = function(apiData, userChoice) {
   totalData.push(pairedArray);
   totalData.push(pairedDescription);
   wineApp.displayTypes(totalData, userChoice);
-  console.log(apiData);
 };
 
 wineApp.cleanData2 = function(apiData, wineUserChoice) {
   let totalData = [];
   totalData.push(apiData.recommendedWines);
   wineApp.categorizeWine(totalData, wineUserChoice);
-  // wineApp.displayWines(totalData, wineUserChoice);
 };
 
 wineApp.categorizeWine = function(apiData, userWineInput) {
@@ -200,11 +191,6 @@ wineApp.randomize = function(cheapWine, midWine, highWine, userWineInput) {
   let randomCheapWine = Math.floor(Math.random() * cheapWine.length);
   let randomMidWine = Math.floor(Math.random() * midWine.length);
   let randomHighWine = Math.floor(Math.random() * highWine.length);
-  console.log(
-    cheapWine[randomCheapWine],
-    midWine[randomMidWine],
-    highWine[randomHighWine]
-  );
 
   wineApp.displayWines(
     cheapWine[randomCheapWine],
@@ -255,7 +241,6 @@ wineApp.displayWines = function(
     .append(
       `<div class="pageThreeTop">
         <p>You chose <span class='pairedWines'>${userWineInput}</span>. Excellent choice! Please see our tailored suggestions below.</p>
-        <div class='priceSlider'><p> Placeholder for Price</p></div>
       </div>`
     )
     .append(
