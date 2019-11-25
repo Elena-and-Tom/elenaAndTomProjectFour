@@ -229,7 +229,7 @@ wineApp.displayTypes = function(apiData, userInput) {
         
           
       </form>
-      <button type="submit" id="getResultsTwo">Get recommedations</button>
+      <button type="submit" id="getResultsTwo">Get recommendations</button>
       <button type="submit" id="startOver">Start over</button>
       </div>`);
 };
