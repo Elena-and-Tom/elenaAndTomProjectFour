@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  ​
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js"></script>
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Dancing+Script|Lora:400,400i&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  ​
+  <body class="bodyMap">
+    <!-- <div class='sidebar pad2'>Listing -->
+    <div class="heading mobile">
+      <h1 class="h1Map">
+        LCBO Finder Tool <br /><span class="goBack"
+          >(<a href="index.html" class="aMap">or go back to iVino</a>)
+        </span>
+      </h1>
+    </div>
+    <div class="sidebar">
+      <div class="heading">
+        <h1 class="h1Map">
+          LCBO Finder Tool <br /><span class="goBack"
+            >(<a href="index.html" class="aMap">or go back to iVino</a>)
+          </span>
+        </h1>
+      </div>
+      <div id="listings" class="listings"></div>
+    </div>
+    <!-- </div> -->
+    <div id="map" class="map pad2">Map</div>
+    <div class="findLocation">
+      <button>Go to My Location</button>
+    </div>
+    ​ ​
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css"
+      type="text/css"
+    />
+    <script src="map.js"></script>
+    ​
+  </body>
+  ​
+</html>

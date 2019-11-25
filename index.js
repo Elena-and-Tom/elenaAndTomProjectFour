@@ -3,6 +3,7 @@ const wineApp = {};
 // selectors stored as variables
 wineApp.mainContainer = document.querySelector(".mainContainer");
 wineApp.topSection = document.querySelector(".topSection");
+wineApp.userFood = [];
 
 // functions for on clicks
 wineApp.events = function() {
@@ -23,7 +24,15 @@ wineApp.events = function() {
 
   $(".mainContainer").on("click", "#startOver", e => {
     e.preventDefault();
+    wineApp.userFood = [];
     wineApp.startOver();
+  });
+
+  $(".mainContainer").on("click", "#goBack", e => {
+    e.preventDefault();
+    wineApp.getData(wineApp.userFood[0]);
+    console.log(wineApp.userFood[0]);
+    wineApp.mainContainer.innerHTML = "";
   });
 
   $(".mainContainer").on("click", "#getResultsTwo", e => {
@@ -232,6 +241,8 @@ wineApp.displayTypes = function(apiData, userInput) {
       <button type="submit" id="getResultsTwo">Get recommendations</button>
       <button type="submit" id="startOver">Start over</button>
       </div>`);
+
+  wineApp.userFood.unshift(userInput);
 };
 
 wineApp.displayWines = function(
@@ -259,7 +270,8 @@ wineApp.displayWines = function(
             <h3>${cheapWineRandom.title}</h3>
             
             <p>${cheapWineRandom.price}</p>
-            <p>You can buy it <a href="${cheapWineRandom.link}">here</a>.</p>
+            <p>See decription<a href="${cheapWineRandom.link}">here</a>.</p>
+            <p>Find my local <a href="map.html">LCBO</a></p>
           </div>
         </div>
         <div class="wineCard">
@@ -272,7 +284,8 @@ wineApp.displayWines = function(
             <h3>${midWineRandom.title}</h3>
             
             <p>${midWineRandom.price}</p>
-            <p>You can buy it <a href="${midWineRandom.link}">here</a>.</p>
+            <p>See description <a href="${midWineRandom.link}">here</a>.</p>
+            <p>Find my local <a href="map.html">LCBO</a></p>
           </div>
         </div>
         <div class="wineCard">
@@ -285,12 +298,14 @@ wineApp.displayWines = function(
             <h3>${highWineRandom.title}</h3>
             
             <p>${highWineRandom.price}</p>
-            <p>You can buy it <a href="${highWineRandom.link}">here</a>.</p>
+            <p>See description <a href="${highWineRandom.link}">here</a>.</p>
+            <p>Find my local <a href="map.html">LCBO</a></p>
           </div>
         </div>
       
       </div>
       <div class="bottomSectionThree">
+     <button type="submit" id="goBack" class='startOverThree'>Go back a step</button> 
 <button type="submit" id="startOver" class='startOverThree'>Start over</button>
 </div>`
     );
