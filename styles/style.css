@@ -856,6 +856,10 @@ body {
   }
 }
 
+.mapboxgl-ctrl-top-right .mapboxgl-ctrl {
+  margin: 60px 20px 0 0;
+}
+
 .map {
   border-left: 1px solid #fff;
   position: absolute;
