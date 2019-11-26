@@ -29,7 +29,11 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 100%;
+  width: 75%;
+  @include media(850px) {
+    left: 0;
+    width: 100%;
+  }
 }
 .map {
   border-left: 1px solid #fff;
@@ -95,6 +99,8 @@
 .pad2 {
   padding: 20px;
 }
+
+
 .map {
   position: absolute;
   left: 25%;

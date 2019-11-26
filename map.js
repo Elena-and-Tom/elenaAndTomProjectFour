@@ -16,6 +16,7 @@ let map = new mapboxgl.Map({
 
 // an alternative to the location guide below - https://docs.mapbox.com/mapbox-gl-js/example/locate-user/
 
+
 // here we've used this stack overflow guide to enable user location tracking on page load - https://stackoverflow.com/questions/56273097/how-to-locate-a-user-without-clicking-on-the-control-button-mapbox-api-javasc
 navigator.geolocation.getCurrentPosition(position => {
   const userCoordinates = [position.coords.longitude, position.coords.latitude];
@@ -39,6 +40,7 @@ navigator.geolocation.getCurrentPosition(position => {
     zoom: 14
   });
 
+
   // here we created a  my location button that recalls the flyTo location function made above
   $(".findLocation").on("click", function() {
     map.flyTo({
@@ -48,7 +50,9 @@ navigator.geolocation.getCurrentPosition(position => {
   });
 });
 
-// for future addition follow this guide to add zoom in and out buttons - https://docs.mapbox.com/mapbox-gl-js/example/navigation/
+
+// followed this guide to add zoom in and out buttons - https://docs.mapbox.com/mapbox-gl-js/example/navigation/
+map.addControl(new mapboxgl.NavigationControl(), "top-right");
 
 // here we've used this guide to add directions functionality - https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-directions/
 map.addControl(
@@ -58,6 +62,8 @@ map.addControl(
   // positioned the nav in the bottom left
   "bottom-left"
 );
+
+
 
 // here we've followed this walk through guide and adapted the code to add LCBO stores on the map and in the sidebar - https://docs.mapbox.com/help/tutorials/building-a-store-locator/
 
