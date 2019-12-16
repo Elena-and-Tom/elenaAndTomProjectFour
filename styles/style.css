@@ -309,6 +309,7 @@ select:focus {
 }
 
 .bottomSection {
+  margin-bottom: 50px;
   height: 165px;
 }
 

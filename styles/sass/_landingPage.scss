@@ -27,6 +27,7 @@ select {
 }
 
 .bottomSection {
+  margin-bottom: 50px;
   height: 165px;
   @include media(700px) {
     padding: 0px 0px;
