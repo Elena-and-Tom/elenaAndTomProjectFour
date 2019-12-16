@@ -310,7 +310,7 @@ select:focus {
 
 .bottomSection {
   margin-bottom: 50px;
-  height: 165px;
+  height: 200px;
 }
 
 @media only screen and (max-width: 700px) {
@@ -394,6 +394,7 @@ select:focus {
 }
 
 .getResults {
+  -webkit-appearance: none;
   padding: 15px 20px;
   background: #e6ca85;
 }

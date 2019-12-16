@@ -28,7 +28,7 @@ select {
 
 .bottomSection {
   margin-bottom: 50px;
-  height: 165px;
+  height: 200px;
   @include media(700px) {
     padding: 0px 0px;
     height: 125px;
@@ -86,6 +86,7 @@ select {
 }
 
 .getResults {
+  -webkit-appearance: none;
   padding: 15px 20px;
   background: $accentColor;
   &:hover,
